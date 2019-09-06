@@ -18,6 +18,32 @@ function bubbleSort(ar) {
     return ar
 }
 
+// for each pass we find the minimum 
+// we swap our current position with the minimum
+// so that we always have minimum values at the beginning
+function selectionSort(ar) {
+    for (let i =0; i < ar.length; i++) {
+        let min = i
+        for (let j = i+ 1; j < ar.length; j++) {
+            if (ar[j] < ar[min]) {
+                min = j
+            }
+        }
+        let temp = ar[i]
+        ar[i] = ar[min]
+        ar[min] = temp
+    }
+    return ar
+}
+
+
+
+
+
+
+
+
+
 const ar = [4,9,8,0,-5,11,2,4,-9]
 
-console.log(bubbleSort(ar))
+console.log(selectionSort(ar))
