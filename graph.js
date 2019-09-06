@@ -79,6 +79,9 @@ function bfs(v) {
 }
 
 
+//NOTES
+// Breadth First Search leads to shortest paths
+
 g = new Graph(5);
 g.addEdge(0,1);
 g.addEdge(0,2);
