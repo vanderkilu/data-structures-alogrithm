@@ -37,6 +37,23 @@ function selectionSort(ar) {
 }
 
 
+// in insertion sort we move all elements greater
+// than the element we are one step ahead 
+// in doing so we always are able to insert into 
+// an already sorted array
+
+function insertionSort(ar) {
+    for (let i = 1; i < ar.length; i++) {
+        let key = ar[i]
+        let j = i -1
+        while ( j >= 0 && ar[j] > key) {
+            ar[j + 1] = ar[j]
+            j -= 1
+        }
+        ar[j + 1] = key
+    }
+    return ar
+}
 
 
 
@@ -46,4 +63,4 @@ function selectionSort(ar) {
 
 const ar = [4,9,8,0,-5,11,2,4,-9]
 
-console.log(selectionSort(ar))
+console.log(insertionSort(ar))
