@@ -55,12 +55,70 @@ function insertionSort(ar) {
     return ar
 }
 
+function mergeSort(ar) {
+    if (ar.length > 1) {
+        const mid = Math.ceil(ar.length / 2)
+        const left = ar.slice(0, mid)
+        const right = ar.slice(mid)
 
+        mergeSort(left)
+        mergeSort(right)
 
+        let i = 0
+        let j = 0
+        let k = 0
+
+        while (i < left.length && j < right.length) {
+            if (ar[i] < ar[j]) {
+                ar[k] = ar[i]
+                i += 1
+            }
+            else {
+                ar[k] = ar[j]
+                j += 1
+            }
+            k += 1
+        }
+
+        //handle the remaining items in the left
+        while (i < ar.length) {
+            ar[k] = ar[i]
+            i += 1
+            k += 1
+        }
+
+        //handle the remaining items in the right
+        while (j < ar.length) {
+            ar[k] = ar[j]
+            j += 1
+            k += 1
+        }
+    }
+
+}
+
+// merge sort and quick sort are all divide and conquer algorithms
+// divide and conquer algorithms are all recursive algorithms
+// with divide and conquer, in every step you have to reduce 
+// or decrease the problem size
+
+// quick sort = quicksort(array less than pivot) + pivot + (array greater than pivot)
+
+function quickSort(ar) {
+    if (ar.length < 2) {
+        return ar
+    }
+    else {
+        const pivot = ar[0]
+        const lessThan = ar.filter((i)=> i < pivot)
+        const greaterThan = ar.filter((i)=> i > pivot)
+        return quickSort(lessThan).concat([pivot]).concat(quickSort(greaterThan))
+    }
+   
+}
 
 
 
 
 const ar = [4,9,8,0,-5,11,2,4,-9]
-
-console.log(insertionSort(ar))
+console.log(quickSort(ar))
