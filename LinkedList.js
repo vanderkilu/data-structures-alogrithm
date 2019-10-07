@@ -10,6 +10,7 @@ function LList() {
     this.insert = insert
     this.findPreviousNode = findPreviousNode
     this.remove = remove
+    this.reverse = reverse
 }
 
 function find(element) {
@@ -56,12 +57,30 @@ function remove(element) {
     }
 }
 
-const cities = new LList()
-cities.insert("Conway", "head");
-cities.insert("Russellville", "Conway");
-cities.insert("Carlisle", "Russellville");
-cities.insert("Alma", "Carlisle");
-cities.display();
-console.log();
-cities.remove("Carlisle");
-cities.display();
+function reverse() {
+    let previousNode = null
+    let currentNode = this.head
+    let temp
+    
+    while (currentNode !== null ) {
+        temp = currentNode.next
+        currentNode.next = previousNode
+        previousNode = currentNode
+        currentNode = temp
+    }
+
+    this.head = previousNode
+}
+
+// const cities = new LList()
+// cities.insert("Conway", "head");
+// cities.insert("Russellville", "Conway");
+// cities.insert("Carlisle", "Russellville");
+// cities.insert("Alma", "Carlisle");
+// cities.display();
+// console.log();
+// cities.remove("Carlisle");
+// cities.display();
+// console.log()
+// cities.reverse()
+// cities.display()
