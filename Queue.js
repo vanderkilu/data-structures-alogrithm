@@ -45,9 +45,49 @@ class PriorityItem {
 function dequeueWithPriority() {
     let priority = this.datastore[0].priority
     for (let i =1; i < this.datastore.length; i++) {
-        if (this.datastore[i].priority < i) {
+        if (this.datastore[i].priority <  priority) {
             priority = i 
         }
     }
     return this.datastore.splice(priority, 0)
+}
+
+//implementing queues using linked list
+
+class Node {
+    constructor(val) {
+        this.val = val
+        this.next = null
+    }
+}
+
+class QueueWithLList {
+    constructor() {
+        this.front = null
+        this.rear = null
+    }
+    isEmpty() {
+        return this.front === null
+    }
+    enqueue(val) {
+        const item = new Node(val)
+        if (this.rear === null) {
+            this.front = this.rear = item
+            return
+        }
+        this.rear.next = item
+        this.rear = this.rear.next
+    }
+
+    dequeue() {
+        if (this.isEmpty()) {
+            return
+        }
+        let temp = this.front
+        this.front = temp.next
+        if (this.front === null) {
+            this.rear = null
+        }
+        return temp.val
+    }
 }
