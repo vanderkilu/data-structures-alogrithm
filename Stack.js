@@ -80,7 +80,7 @@ function infixToPostfixConversion(exp) {
             }
         }
         else {
-            while (s.length() > 0 && precedence[char] < precedence[s.peek()]) {
+            while (s.length() > 0 && precedence[char] <= precedence[s.peek()]) {
                 postFix += s.pop()
             }
             s.push(char)
