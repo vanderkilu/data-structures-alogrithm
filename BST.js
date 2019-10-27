@@ -8,6 +8,14 @@
 //--> search in a BST depends on the height 
 // of the tree and can be logn or n in terms
 // of time complexity
+//--> A tree of height n can be converted into
+// one with height of logn, i.e AVL trees
+//--> AVL trees provide a means to convert
+// BST into balanced BST
+//--> A balanced tree(BST) is defined to be a tree 
+//such that no two leaf nodes differ in distance
+//from the root by more than one(same as difference bt the heights of the 
+//left and right subtree should be at most 1)
 
 
 function Node(data, left, right) {
@@ -139,4 +147,12 @@ function deleteNode(node, data) {
         node.right = deleteNode(node.right, data)
         return node
     }
+}
+
+
+function height(node) {
+    if (node === null) {
+        return 0
+    }
+    return 1 + Math.max(height(root.left), height(root.right))
 }
