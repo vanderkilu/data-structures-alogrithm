@@ -91,20 +91,20 @@ function search(value) {
 //last value is the min value
 function getMin(root) {
     let current = root
-    while (current !== null) {
+    while (current.left !== null) {
         current = current.left
     }
-    return current
+    return current.data
 }
 
 //traverse through the right nodes
 //last value is the min value
 function getMax(root) {
     let current = root
-    while (current !== null) {
+    while (current.right !== null) {
         current = current.right
     }
-    return current
+    return current.data
 }
 
 function deleteNode(node, data) {
