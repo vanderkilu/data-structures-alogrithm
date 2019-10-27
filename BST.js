@@ -1,3 +1,15 @@
+//-->The height of a tree is the length of the 
+// of the longest path from the root to a leaf nod
+//--> The depth of a node is the length of the 
+//longest path from that node to the root
+//--> level = depth + 1
+//--> The height of a tree depends on how 
+// insertion took place
+//--> search in a BST depends on the height 
+// of the tree and can be logn or n in terms
+// of time complexity
+
+
 function Node(data, left, right) {
     this.data = data
     this.left = left
