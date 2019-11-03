@@ -41,6 +41,8 @@ function selectionSort(ar) {
 // than the element we are one step ahead 
 // in doing so we always are able to insert into 
 // an already sorted array
+// We shift larger values so as to get the 
+// appropriate position for the next item
 
 function insertionSort(ar) {
     for (let i = 1; i < ar.length; i++) {
@@ -55,6 +57,10 @@ function insertionSort(ar) {
     return ar
 }
 
+// we break the list into two parts(left and right)
+// and recursively sort the left list
+// and solve the right list
+// after we merge the lists to obtain a sorted list
 function mergeSort(ar) {
     if (ar.length > 1) {
         const mid = Math.ceil(ar.length / 2)
